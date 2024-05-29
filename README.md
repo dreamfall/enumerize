@@ -220,7 +220,7 @@ It's also possible to store enumerized attribute value using custom values (e.g.
 class User < ActiveRecord::Base
   extend Enumerize
 
-  enumerize :role, in: {:user => 1, :admin => 2}
+  enumerize :role, in: { user: 1, admin: 2 }
 end
 
 user = User.new
@@ -237,8 +237,8 @@ ActiveRecord scopes:
 ```ruby
 class User < ActiveRecord::Base
   extend Enumerize
-  enumerize :sex, :in => [:male, :female], scope: true
-  enumerize :status, :in => { active: 1, blocked: 2 }, scope: :having_status
+  enumerize :sex, in: [:male, :female], scope: true
+  enumerize :status, in: { active: 1, blocked: 2 }, scope: :having_status
 end
 
 User.with_sex(:female)
@@ -292,7 +292,7 @@ and if you want it as radio buttons:
 
 ```erb
 <%= simple_form_for @user do |f| %>
-  <%= f.input :sex, :as => :radio_buttons %>
+  <%= f.input :sex, as: :radio_buttons %>
 <% end %>
 ```
 
@@ -310,7 +310,7 @@ and if you want it as radio buttons:
 
 ```erb
 <%= semantic_form_for @user do |f| %>
-  <%= f.input :sex, :as => :radio %>
+  <%= f.input :sex, as: :radio %>
 <% end %>
 ```
 
